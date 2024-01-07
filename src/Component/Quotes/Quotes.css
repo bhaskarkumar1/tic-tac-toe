@@ -1,0 +1,22 @@
+.outer{
+    position: absolute;
+    height: 40%;
+    width: 20%;
+    background-color: #192A32;
+    bottom: 50px;
+    left: 120px;
+    /* right: 2px;s */
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1{
+   color: #31C4BE
+}
+
+.quote{
+    color: #F2B237;
+    font-size: 1.2rem;
+    padding: 15% 5%;
+}
+
