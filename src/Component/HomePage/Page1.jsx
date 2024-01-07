@@ -7,6 +7,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+import { Link } from 'react-router-dom';
+
+
+
 
 function Page1() {
   // const notify = () =>
@@ -19,7 +23,7 @@ function Page1() {
     const notify = async () => {
       try {
         // Your logic to generate the invite link
-        const inviteLink = "https://www.google.comcc";
+        const inviteLink = "https://tic-tac-toe-git-master-bhaskarkumar1.vercel.app/";
   
         // Copy the link to the clipboard
         await navigator.clipboard.writeText(inviteLink);
@@ -44,9 +48,9 @@ function Page1() {
     <div className="page1">
       <div className="inner-pg-1">
         <div className="icons">
-          <img className="cross" src="src/assets/cross.png" alt="" />
+          <img className="cross" src="/cross.png" alt="" />
           <div className="circle">
-            <img className="ccircle" src="src/assets/circle.png" />
+            <img className="ccircle" src="/circle.png" />
           </div>
         </div>
 
@@ -54,9 +58,9 @@ function Page1() {
           <h1>PICK PLAYERS</h1>
 
           <div className="container">
-              <img className="wcross" src="src/assets/wcross.png" alt="" />
+              <img className="wcross" src="/wcross.png" alt="" />
               <div className="right-part">
-                <img  className="bo" src="src/assets/bo.png" alt="" />
+                <img  className="bo" src="/bo.png" alt="" />
               </div>
 
 
@@ -65,7 +69,11 @@ function Page1() {
 
         </div>
         <div className="lower">
-        <button className="btn">NEW GAME( VS CPU )</button>
+
+        <Link to="/play">
+            <button className="btn">NEW GAME( VS CPU )</button>
+          </Link>
+        {/* <button className="btn">NEW GAME( VS CPU )</button> */}
         <button className="btn btn-2">
           
           NEW GAME ( VS HUMAN ) Coming soon
