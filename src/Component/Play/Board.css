@@ -91,3 +91,10 @@
 .o{
     background-color: #F2B237;
 }
+
+.div-cross{
+    height: 60%;
+    width: 60%;
+    margin-left:20% ;
+    margin-top: 20%;
+}
