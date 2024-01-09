@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React from "react";
 import "./App.css"
 
 // import Page1 from "./Component/HomePage/Page1";
 
 function App(props){
 
-  const[user,setUser]=useState("x")
+  // const[user,setUser]=useState("x")
 
   return(
     <>

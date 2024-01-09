@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 function Page1() {
 // get the variable what user selected
 
-console.log(user)
+// console.log(user)
 
   // const notify = () =>
   //   toast("Invite link copied", {
