@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Page1.css";
 
 
@@ -13,6 +13,10 @@ import { Link } from 'react-router-dom';
 
 
 function Page1() {
+// get the variable what user selected
+
+console.log(user)
+
   // const notify = () =>
   //   toast("Invite link copied", {
   //     className: "custom-toast",
@@ -32,7 +36,9 @@ function Page1() {
         // toast.success("Invite link copied!");
         toast("Invite link copied", {
           className: "custom-toast",
-          toastClassName: "custom-toast-text",
+          toastClassName: "custom-toast-text",            
+          // <img onClick={()=>{setUser("o")}} className="ccircle" src="/circle.png" />
+
         })
 
       } catch (error) {
@@ -50,7 +56,7 @@ function Page1() {
         <div className="icons">
           <img className="cross" src="/cross.png" alt="" />
           <div className="circle">
-            <img className="ccircle" src="/circle.png" />
+            <img onClick={()=>{setUser("o")}} className="ccircle" src="/circle.png" />
           </div>
         </div>
 

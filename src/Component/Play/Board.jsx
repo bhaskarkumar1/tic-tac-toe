@@ -1,26 +1,67 @@
 import React, { useState } from "react";
 import "./Board.css";
+
+
+let data=["","","","","","","","",""]
+
 function Board(){
-    const [boxes, setBoxes] = useState(Array(9).fill(null));
-    const addicon=((index)=>{
-    // console.log("Helli")
-    // console.log(event.target)
-    // event.target.innerHTML= <img src="cross.png"></img>
-    if (boxes[index]===null){
-        const newBoxes = [...boxes];
-        newBoxes[index] = <img className="div-cross" src="x.png" alt="X" />;
 
-        setBoxes(newBoxes)
+  
+        let[count,setCount]=useState(0)
+        let[lock,setLock]=useState(false) //whenever the user wins set the lock to true
 
-    }
+        const addicon=(e,num)=>{
+            if (lock){
+                return 0;
+            }
+            if(count%2===0){
+                e.target.innerHTML=`<img className="cross-x" src='x.png'>`
+                data[num]='x'
+                setCount(++count)
+            }
+            else{
+                e.target.innerHTML=`<img className="circle-o" src='o.png'>`
+                data[num]='o'
+                setCount(++count)
 
-    //computer turn
-    // check how many boxes are having value null 
-    // then get the index of null boxes and insert the O  there 
+            }
+            checkwin()
+        }
 
-    //
 
-   })
+        const checkwin=()=>{
+            if (data[0]===data[1] && data[1]===data[2] && data[2]!==""){
+                won(data)
+            }
+            else if (data[3]===data[4] && data[4]===data[5] && data[5]!==""){
+                won(data)
+            }
+            else if (data[6]===data[7] && data[7]===data[8] && data[8]!==""){
+                won(data)
+            }
+            else if (data[0]===data[3] && data[3]===data[6] && data[6]!==""){
+                won(data)
+            }
+            else if (data[1]===data[4] && data[4]===data[7] && data[7]!==""){
+                won(data)
+            }
+            else if (data[2]===data[5] && data[5]===data[8] && data[8]!==""){
+                won(data)
+            }
+            else if (data[0]===data[4] && data[4]===data[8] && data[8]!==""){
+                won(data)
+            }
+            else if (data[2]===data[4] && data[4]===data[6] && data[6]!==""){
+                won(data)
+            }
+        }
+    
+
+        const won=(winner)=>{
+            setLock(true)
+        }
+  
+
 
     return(
         <>
@@ -48,25 +89,28 @@ function Board(){
         <div className="grid">
 
             <div className="row1">
-                <div className="boxes" onClick={()=>addicon(0)}> {boxes[0]}</div>
-                <div className="boxes" onClick={()=>addicon(1)}>{boxes[1]}</div>
-                <div className="boxes" onClick={()=>addicon(2)}>{boxes[2]}</div>
+                <div className="boxes" onClick={(e)=>addicon(e,0)}> </div>
+                <div className="boxes" onClick={(e)=>addicon(e,1)}></div>
+                <div className="boxes" onClick={(e)=>addicon(e,2)}></div>
 
             </div>
 
             <div className="row2">
-                <div className="boxes" onClick={()=>addicon(3)}>{boxes[3]}</div>
-                <div className="boxes" onClick={()=>addicon(4)}>{boxes[4]}</div>
-                <div className="boxes" onClick={()=>addicon(5)}>{boxes[5]}</div>
+                <div className="boxes" onClick={(e)=>addicon(e,3)}></div>
+                <div className="boxes" onClick={(e)=>addicon(e,4)}></div>
+                <div className="boxes" onClick={(e)=>addicon(e,5)}></div>
 
             </div>
 
             <div className="row3">
-                <div className="boxes" onClick={()=>addicon(6)}> {boxes[6]}</div>
-                <div className="boxes" onClick={()=>addicon(7)}>{boxes[7]}</div>
-                <div className="boxes" onClick={()=>addicon(8)}>{boxes[8]}</div>
+                <div className="boxes" onClick={(e)=>addicon(e,6)}> </div>
+                <div className="boxes" onClick={(e)=>addicon(e,7)}></div>
+                <div className="boxes" onClick={(e)=>addicon(e,8)}></div>
 
             </div>
+
+            
+
         </div>
 
         <div className="bottom">

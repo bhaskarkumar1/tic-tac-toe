@@ -5,7 +5,6 @@ import App from "../App";
 import Board from "../Component/Play/Board";
 function Playground(){
     return(
-        // <App {koll}/>
         <>
         <App one={<Board/>}/>
         <Quotes/>
